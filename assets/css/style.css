@@ -3,7 +3,11 @@
 }
 
 .pick{
-	float: left;
-	margin: 50px;
+
+	margin: 10px;
 	color: blue;
+}
+
+.domanda{
+	clear: both;
 }

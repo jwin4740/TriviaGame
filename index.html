@@ -6,7 +6,7 @@
     <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
     <script src="assets/javascript/app.js"></script>
     <!-- <link rel="stylesheet" href=assets/css/reset.css> -->
-  <!--   <link rel="stylesheet" href="assets/css/jjwstylelibrary.css"> -->
+    <!--   <link rel="stylesheet" href="assets/css/jjwstylelibrary.css"> -->
     <link rel="stylesheet" href="assets/css/style.css">
     <title> Trivia </title>
     <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
@@ -14,8 +14,29 @@
 
 <body>
     <h1> TRIVIA GAME </h1>
-    <div id="questions">
-        
+    <div id="timer">
+    </div>
+    <div id="questionbox">
+    	<div id="question">
+    	</div>
+        <form id="questionchoices" class="domanda">
+            <div class="choice1 pick">
+                <input id="choicea" type="radio" name="question" class="option" data="A">
+                <label for="choicea"> x </label>
+            </div>
+            <div class="choice2 pick">
+                <input id="choiceb" type="radio" name="question" class="option" data="B">
+                <label for="choiceb"> x </label>
+            </div>
+            <div class="choice3 pick">
+                <input id="choicec" type="radio" name="question" class="option" data="C">
+                <label for="choicec"> x </label>
+            </div>
+            <div class="choice4 pick">
+                <input id="choiced" type="radio" name="question" class="option" data="D">
+                <label id="labeld" for="choiced"> x </label>
+            </div>
+        </form>
     </div>
 </body>
 
