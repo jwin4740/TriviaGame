@@ -1,0 +1,9 @@
+*{
+	box-sizing: border-box;
+}
+
+.choice{
+	float: left;
+	margin: 50px;
+	color: blue;
+}
