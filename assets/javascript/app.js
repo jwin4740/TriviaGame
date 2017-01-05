@@ -36,7 +36,7 @@ $(document).ready(function() {
     scienceArray.push(questionThree);
     console.log(scienceArray);
 
-var x = 1; // x is set to whatever question we want to ask
+var x = 0; // x is set to whatever question we want to ask
 
     function fillQuestionBox(x) {
         $("#domanda").append(scienceArray[x].prompt);
@@ -69,7 +69,7 @@ var x = 1; // x is set to whatever question we want to ask
         }
         console.log(result);
         console.log(scienceArray[x].answer);
-        $("#nextbutton").append("<button id='next' value='next'>");
+        $("#nextbutton").append("<button id='next'>NEXT</button>");
 
     }
 
@@ -82,17 +82,30 @@ var x = 1; // x is set to whatever question we want to ask
 
     }
     run();
+
+    function resetQuestionBox () {
+    	x++;
+    	$("input:radio").prop("checked", false);
+    	$("#domanda").html(scienceArray[x].prompt);
+        $("#labelA").html("A) " + scienceArray[x].choiceA);
+        $("#labelB").html("B) " + scienceArray[x].choiceB);
+        $("#labelC").html("C) " + scienceArray[x].choiceC);
+        $("#labelD").html("D) " + scienceArray[x].choiceD);
+        $("#nextbutton").empty();
+        timerStart = 12;
+        run();
+    }
     $(".option").on("click", function() {
         result = $(this).attr("data");
-
+        
         console.log(result);
-
-
-
 
     });
 
-
+$("#nextbutton").on("click", "button", function () {
+	console.log("ready for next question");
+	resetQuestionBox();
+});
 
 
 
