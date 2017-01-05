@@ -36,8 +36,7 @@ $(document).ready(function() {
     scienceArray.push(questionThree);
     console.log(scienceArray);
 
-
-
+var x = 1; // x is set to whatever question we want to ask
 
     function fillQuestionBox(x) {
         $("#domanda").append(scienceArray[x].prompt);
@@ -70,9 +69,13 @@ $(document).ready(function() {
         }
         console.log(result);
         console.log(scienceArray[x].answer);
+        $("#nextbutton").append("<button id='next' value='next'>");
+
     }
 
-    function stop(x) {
+
+
+    function stop() {
         clearInterval(timer);
 		checkAnswer(x);
 
