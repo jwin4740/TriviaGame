@@ -1,22 +1,31 @@
 $(document).ready(function() {
-    var n = 6; //number of questions
+    var questionDiv = "";
 
     $(".optiona").append("hello world");
 
 
     // function that creates the question then inserts it into the DOM
 
-    function generateQuestion() {
-        for (var i = 1; i <= n; i++) {
-            var questionDiv = $("#questions");
+    function generateQuestions() {
+        for (var i = 1; i <= 2; i++) {
+            questionDiv = $("#questionsDom" + i);
             var newForm = $("<form>");
             newForm.attr("id", "question" + i);
-            var newInput = $("<input>");
-            newInput.attr({type: "radio", name: "question"})
-            questionDiv.append(newForm).append(newInput);
+            questionDiv.append(newForm).append("<hr style='clear: both;'>");
+            for (var j = 1; j < 5; j++) {
+                var newDiv = $("<div class='choice" + j + " pick'>");
+                $("#question" + i).append(newDiv);
+            }
+            for (var k = 1; k <= 5; k++) {
+                var newInput = $("<input>");
+                newInput.attr({ type: "radio", name: "question", class: "option", data: String.fromCharCode(k + 64) });
+                console.log(String.fromCharCode(k + 64));
+                $(".choice" + k).append(newInput);
+            }
+            questionDiv.append("<div id='questionsDom" + (i + 1) + "'>");
         }
     }
-    generateQuestion();
+    generateQuestions();
 
 
     $(document).on("click", ".option", function() {
