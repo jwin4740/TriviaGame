@@ -1,12 +1,13 @@
 $(document).ready(function() {
     var questionDiv = "";
     var scienceArray = [];
+    var answer;
 
 
     // prototype object
     function question(category, prompt, choiceA, choiceB, choiceC, choiceD) {
         this.category = category;
-        this.prompt = prompt;
+        this.prompt = prompt; // do subcategories
         this.choiceA = choiceA;
         this.choiceB = choiceB;
         this.choiceC = choiceC;
@@ -15,14 +16,18 @@ $(document).ready(function() {
     };
 
     // make Character objects for each player
-    var questionOne = new question("science", "what does H2O stand for?", "methane", "water", "carbon", "octane");
+    var questionOne = new question("chemistry", "what does H2O stand for?", "methane", "water", "carbon", "octane");
     console.log(questionOne.prompt);
     scienceArray.push(questionOne);
 
-    var questionTwo = new question("science", "what does C6h6 stand for?", "methane", "hexane", "benzene", "octane");
+    var questionTwo = new question("chemistry", "what does C6h6 stand for?", "methane", "hexane", "benzene", "octane");
     console.log(questionTwo.prompt);
     scienceArray.push(questionTwo);
-    console.log(scienceArray[0]);
+    
+    var questionThree = new question("chemistry", "which of these organic mechanism names is made up?", "Markovnikov", "Zaitsev", "Karpov", "Grignard");
+    console.log(questionThree.prompt);
+    scienceArray.push(questionThree);
+    console.log(scienceArray);
 
 
 
@@ -34,16 +39,13 @@ $(document).ready(function() {
         $("#labelC").append(scienceArray[x].choiceC);
         $("#labelD").append(scienceArray[x].choiceD);
 
-           }
+    }
+    fillQuestionBox(2);
 
-    fillQuestionBox(0);
-
-    $("#questions").on("click", ".domanda.choice.option", function() {
-        var answer = $(this).data("value");
+    $(".option").on("click", function() {
+        answer = $(this).attr("data");
         console.log(answer);
     });
-
-
 
 
 
