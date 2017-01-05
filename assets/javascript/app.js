@@ -1,7 +1,12 @@
 $(document).ready(function() {
+    // global variables defined
+
+
     var questionDiv = "";
     var scienceArray = [];
     var answer;
+    var timerStart = 12;
+    var timer;
 
 
     // prototype object
@@ -42,9 +47,31 @@ $(document).ready(function() {
     }
     fillQuestionBox(2);
 
+    function decrement () {
+    	timerStart--;
+    	$("#timer").html(timerStart);
+
+    	if (timerStart === 0)
+    	{
+    		stop();
+    	}
+
+    }
+
+    function run () {
+    timer = setInterval(decrement, 1000);
+}
+
+function stop (){
+	clearInterval(timer);
+	timerStart = 12;
+}
+run(),
     $(".option").on("click", function() {
         answer = $(this).attr("data");
         console.log(answer);
+
+
     });
 
 
