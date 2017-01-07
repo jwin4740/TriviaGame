@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
-    
-     <script src="assets/javascript/app.js"></script>
-     <!-- <script src="assets/javascript/questionbank.js"></script> -->
+    <!--  <script src="assets/javascript/questionbank.js"></script> -->
+    <script src="assets/javascript/app.js"></script>
     <!-- <link rel="stylesheet" href=assets/css/reset.css> -->
     <!--   <link rel="stylesheet" href="assets/css/jjwstylelibrary.css"> -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -16,13 +15,22 @@
 
 <body>
     <h1> TRIVIA GAME </h1>
+    <h3> Choose Your category</h3>
+    <select id="selection">
+        <option class="category" >Chemistry</option>
+        <option class="category" >Hamilton</option>
+        <option class="category" >bio</option>
+        <option class="category" >sports</option>
+    </select>
+    <button id="confirmcat"> Confirm Category</button>
+    <br>
     <button id="pause">PAUSE</button>
-     <button id="resume">RESUME</button>
+    <button id="resume">RESUME</button>
     <h2> TIMER: <span id="timer">
     </span></h2>
     <div id="questionbox">
-    	<div id="domanda">
-    	</div>
+        <div id="domanda">
+        </div>
         <form id="questionchoices">
             <div class="choice1 pick">
                 <input id="choicea" type="radio" name="question" class="option" data="A">
@@ -42,24 +50,15 @@
             </div>
         </form>
     </div>
-
-    
-    
     <div id="reveal">
-        
     </div>
-
     <div id="nextbutton">
     </div>
-
     <div id="tracker">
-        <h3> Correct Answers: </h3>
-        <h3> Wrong Answers: </h3>
-        <br>
-        <h3> TOTAL QUESTIONS: </h3>
-
+        <h3> Correct Answers: <span id="correct">0</span></h3>
+        <h3> Wrong Answers: <span id="wrong">0</span> </h3>
+        <h3> TOTAL QUESTIONS: <span id="total">0</span></h3>
     </div>
-
 </body>
 
 </html>

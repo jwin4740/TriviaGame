@@ -1,14 +1,22 @@
 $(document).ready(function() {
     // global variables defined
     var questionDiv = "";
+    var questionArray = [];
     var scienceArray = [];
+    var hamiltonArray = [];
     var result = "";
     var timerStart = 5;
     var timer = "";
     var temp = "";
+    var totalQuestions = "";
+    var wrong = 0;
+    var correct = 0;
+    var check = false;
+    var total = 0;
 
-//constructor question object
-   function question(category, prompt, choiceA, choiceB, choiceC, choiceD, answer) {
+    var x = 0; // x is set to whatever question we want to ask
+    //constructor question object
+    function question(category, prompt, choiceA, choiceB, choiceC, choiceD, answer) {
         this.category = category;
         this.prompt = prompt; // do subcategories
         this.choiceA = choiceA;
@@ -16,37 +24,64 @@ $(document).ready(function() {
         this.choiceC = choiceC;
         this.choiceD = choiceD;
         this.answer = answer;
-
     };
 
 
     // make Character objects for each player
 
 
-var questionOne = new question("chemistry", "what does H2O stand for?", "methane", "water", "carbon", "octane", "B");
-console.log(questionOne.prompt);
-scienceArray.push(questionOne);
+    var questionOne = new question("chemistry", "what does H2O stand for?", "methane", "water", "carbon", "octane", "B");
+    console.log(questionOne.prompt);
+    scienceArray.push(questionOne);
 
-var questionTwo = new question("chemistry", "what does C6h6 stand for?", "methane", "hexane", "benzene", "octane", "C");
-console.log(questionTwo.prompt);
-scienceArray.push(questionTwo);
+    var questionTwo = new question("chemistry", "what does C6h6 stand for?", "methane", "hexane", "benzene", "octane", "C");
+    console.log(questionTwo.prompt);
+    scienceArray.push(questionTwo);
 
-var questionThree = new question("chemistry", "which of these organic mechanism names is made up?", "Markovnikov", "Zaitsev", "Karpov", "Grignard", "C");
-console.log(questionThree.prompt);
-scienceArray.push(questionThree);
-console.log(scienceArray);
+    var questionThree = new question("chemistry", "which of these organic mechanism names is made up?", "Markovnikov", "Zaitsev", "Karpov", "Grignard", "C");
+    console.log(questionThree.prompt);
+    scienceArray.push(questionThree);
+    console.log(scienceArray);
+
+    var questionFour = new question("hamilton", "Who killed hamilton?", "aaronburr", "hamilton", "jefferson", "john maurens", "A");
+    console.log(questionFour.prompt);
+    hamiltonArray.push(questionFour);
+    console.log(hamiltonArray);
 
 
-var x = 0; // x is set to whatever question we want to ask
+
+    console.log($("#selection").val());
+    // $("#getmessage").on("click", function() {
+    //     key = parseFloat($("#caesarkey").val());
+    //     messagi = $("#message").val();
+
+    $("#confirmcat").on("click", function() {
+
+
+        function chooseCategory() {
+            if ($("#selection").val() === "Chemistry") {
+                console.log("option working");
+                questionArray = scienceArray;
+            }
+            if ($("#selection").val() === "Hamilton") {
+                console.log("option working");
+                questionArray = hamiltonArray;
+            }
+        }
+        chooseCategory();
+        fillQuestionBox(x);
+    });
+
 
     function fillQuestionBox(x) {
-        $("#domanda").append(scienceArray[x].prompt);
-        $("#labelA").append(scienceArray[x].choiceA);
-        $("#labelB").append(scienceArray[x].choiceB);
-        $("#labelC").append(scienceArray[x].choiceC);
-        $("#labelD").append(scienceArray[x].choiceD);
+        $("#domanda").append(questionArray[x].prompt);
+        $("#labelA").append(questionArray[x].choiceA);
+        $("#labelB").append(questionArray[x].choiceB);
+        $("#labelC").append(questionArray[x].choiceC);
+        $("#labelD").append(questionArray[x].choiceD);
+        run();
     }
-    fillQuestionBox(x);
+
 
     function decrement() {
         timerStart--;
@@ -62,22 +97,35 @@ var x = 0; // x is set to whatever question we want to ask
 
     function checkAnswer(x) {
 
-        if (result === scienceArray[x].answer) {
-            alert("correct!!!!");
+        if (result === questionArray[x].answer) {
+            check = true;
         }
-        if (result != scienceArray[x].answer) {
-            alert("wrongo!!!!");
+        if (result != questionArray[x].answer) {
+            check = false;
         }
         console.log(result);
-        console.log(scienceArray[x].answer);
-        $("#reveal").html("<h3> The correct answer is: " + scienceArray[x].answer + "</h3>");
+        console.log(questionArray[x].answer);
+        $("#reveal").html("<h3> The correct answer is: " + questionArray[x].answer + "</h3>");
+        if (check) {
+            correct++;
+            $("#correct").html(correct);
+        } else
+
+        {
+            wrong++;
+            $("#wrong").html(wrong);
+        }
+
+        total++;
+        $("#total").html(total);
+
         $("#nextbutton").append("<button id='next'>NEXT</button>");
 
     }
 
- $(".option").on("click", function() {
+    $(".option").on("click", function() {
         result = $(this).attr("data");
-        
+
         console.log(result);
 
     });
@@ -85,42 +133,42 @@ var x = 0; // x is set to whatever question we want to ask
 
     function stop() {
         clearInterval(timer);
-		checkAnswer(x);
+        checkAnswer(x);
     }
-    run();
 
-    
-    function resetQuestionBox () {
-    	x++;
-    	$("input:radio").prop("checked", false);
+
+
+    function resetQuestionBox() {
+        x++;
+        $("input:radio").prop("checked", false);
         $("#reveal").empty();
-    	$("#domanda").html(scienceArray[x].prompt);
-        $("#labelA").html("A) " + scienceArray[x].choiceA);
-        $("#labelB").html("B) " + scienceArray[x].choiceB);
-        $("#labelC").html("C) " + scienceArray[x].choiceC);
-        $("#labelD").html("D) " + scienceArray[x].choiceD);
+        $("#domanda").html(questionArray[x].prompt);
+        $("#labelA").html("A) " + questionArray[x].choiceA);
+        $("#labelB").html("B) " + questionArray[x].choiceB);
+        $("#labelC").html("C) " + questionArray[x].choiceC);
+        $("#labelD").html("D) " + questionArray[x].choiceD);
         $("#nextbutton").empty();
         timerStart = 5;
         run();
     }
-   
-
-$("#pause").on("click", function pauseTimer () {
-    clearInterval(timer);
-
-});
-
-$("#resume").on("click", function pauseTimer () {
-    run();
-
-});
 
 
+    $("#pause").on("click", function pauseTimer() {
+        clearInterval(timer);
 
-$("#nextbutton").on("click", "button", function () {
-	console.log("ready for next question");
-	resetQuestionBox();
-});
+    });
+
+    $("#resume").on("click", function pauseTimer() {
+        run();
+
+    });
+
+
+
+    $("#nextbutton").on("click", "button", function() {
+        console.log("ready for next question");
+        resetQuestionBox();
+    });
 
 
 
