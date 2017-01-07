@@ -11,3 +11,10 @@
 .domanda{
 	clear: both;
 }
+
+#tracker{
+	float: right;
+	border: solid 2px black;
+	padding: 5px;
+	width: 200px;
+}

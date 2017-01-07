@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
-    <script src="assets/javascript/app.js"></script>
+    
+     <script src="assets/javascript/app.js"></script>
+     <!-- <script src="assets/javascript/questionbank.js"></script> -->
     <!-- <link rel="stylesheet" href=assets/css/reset.css> -->
     <!--   <link rel="stylesheet" href="assets/css/jjwstylelibrary.css"> -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -14,7 +16,9 @@
 
 <body>
     <h1> TRIVIA GAME </h1>
-    <h2> TIMER: <span id="timer">12
+    <button id="pause">PAUSE</button>
+     <button id="resume">RESUME</button>
+    <h2> TIMER: <span id="timer">
     </span></h2>
     <div id="questionbox">
     	<div id="domanda">
@@ -38,8 +42,22 @@
             </div>
         </form>
     </div>
+    
+    <div id="reveal">
+        
+    </div>
+
     <div id="nextbutton">
     </div>
+
+    <div id="tracker">
+        <h3> Correct Answers: </h3>
+        <h3> Wrong Answers: </h3>
+        <br>
+        <h3> TOTAL QUESTIONS: </h3>
+
+    </div>
+
 </body>
 
 </html>
