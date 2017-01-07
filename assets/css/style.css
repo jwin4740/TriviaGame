@@ -5,7 +5,8 @@
 .pick{
 
 	margin: 10px;
-	color: blue;
+	color: black;
+	font-size: 20px;
 }
 
 #questionbox{
@@ -14,8 +15,9 @@
 
 }
 
-.domanda{
-	clear: both;
+#domanda{
+	
+	font-size: 20px;
 }
 
 #tracker{
@@ -32,3 +34,10 @@
 	clear: both;
 }
 
+#explanation{
+	clear: both;
+	color: blue;
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}

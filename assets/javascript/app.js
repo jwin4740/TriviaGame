@@ -16,7 +16,7 @@ $(document).ready(function() {
 
     var x = 0; // x is set to whatever question we want to ask
     //constructor question object
-    function question(category, prompt, choiceA, choiceB, choiceC, choiceD, answer) {
+    function question(category, prompt, choiceA, choiceB, choiceC, choiceD, answer, fact) {
         this.category = category;
         this.prompt = prompt; // do subcategories
         this.choiceA = choiceA;
@@ -24,17 +24,18 @@ $(document).ready(function() {
         this.choiceC = choiceC;
         this.choiceD = choiceD;
         this.answer = answer;
+        this.fact = fact;
     };
 
 
     // make Character objects for each player
 
 
-    var questionOne = new question("chemistry", "what does H2O stand for?", "methane", "water", "carbon", "octane", "B");
+    var questionOne = new question("chemistry", "what does H2O stand for?", "methane", "water", "carbon", "octane", "B", "FUN FACT: EDIT some have noticed that this code will throw an error if passed a string where the left-most indexes don't correspond to a correctly nested entry within the object. This is a valid concern, but IMHO best addressed with a try / catch block when calling, rather than having this function silently return undefined for an invalid index.");
     console.log(questionOne.prompt);
     scienceArray.push(questionOne);
 
-    var questionTwo = new question("chemistry", "what does C6h6 stand for?", "methane", "hexane", "benzene", "octane", "C");
+    var questionTwo = new question("chemistry", "what does C6h6 stand for?", "methane", "hexane", "benzene", "octane", "C", "FUN FACT: jalsjdfl;aslfjasl;jsfjsafj");
     console.log(questionTwo.prompt);
     scienceArray.push(questionTwo);
 
@@ -107,6 +108,7 @@ $(document).ready(function() {
         console.log(result);
         console.log(questionArray[x].answer);
         $("#reveal").html("<h3> The correct answer is: " + questionArray[x].answer + "</h3>");
+        $(".choice" + questionArray[x].answer).css("border", "solid 4px #7FFF00");
         if (check) {
             correct++;
             $("#correct").html(correct);
@@ -119,7 +121,7 @@ $(document).ready(function() {
 
         total++;
         $("#total").html(total);
-
+        $("#explanation").append(questionArray[x].fact);
         $("#nextbutton").append("<button id='next'>NEXT</button>");
 
     }
@@ -168,6 +170,8 @@ $(document).ready(function() {
 
     $("#nextbutton").on("click", "button", function() {
         console.log("ready for next question");
+        $(".choice" + questionArray[x].answer).css("border", "none");
+        $("#explanation").empty();
         resetQuestionBox();
     });
 
