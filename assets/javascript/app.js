@@ -70,6 +70,7 @@ $(document).ready(function() {
         }
         chooseCategory();
         fillQuestionBox(x);
+        $("#questionbox").css("display", "block");
     });
 
 
