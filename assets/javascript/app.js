@@ -5,7 +5,7 @@ $(document).ready(function() {
     var scienceArray = [];
     var hamiltonArray = [];
     var result = "";
-    var timerStart = 5;
+    var timerStart = 15;
     var timer = "";
     var temp = "";
     var totalQuestions = "";
@@ -13,6 +13,7 @@ $(document).ready(function() {
     var correct = 0;
     var check = false;
     var total = 0;
+    var submit = true;
 
     var x = 0; // x is set to whatever question we want to ask
     //constructor question object
@@ -81,15 +82,26 @@ $(document).ready(function() {
         $("#labelB").append(questionArray[x].choiceB);
         $("#labelC").append(questionArray[x].choiceC);
         $("#labelD").append(questionArray[x].choiceD);
+
         run();
     }
 
+    $("#submit").on("click", function() {
+        if (submit) {
+            stop();
+            $("#timer").empty();
+            submit = false;
+        }
+
+    });
 
     function decrement() {
         timerStart--;
         $("#timer").html(timerStart);
         if (timerStart === 0) {
-            stop()
+            stop();
+            submit = false;
+
         }
     }
 
@@ -121,7 +133,8 @@ $(document).ready(function() {
 
         total++;
         $("#total").html(total);
-        $("#explanation").append(questionArray[x].fact);
+        
+        $("#explanation").append(questionArray[x].fact).css("border", "dashed 2px white");
         $("#nextbutton").append("<button id='next'>NEXT</button>");
 
     }
@@ -151,36 +164,18 @@ $(document).ready(function() {
         $("#labelC").html("C) " + questionArray[x].choiceC);
         $("#labelD").html("D) " + questionArray[x].choiceD);
         $("#nextbutton").empty();
-        timerStart = 5;
+        timerStart = 15;
         run();
     }
-
-
-    $("#pause").on("click", function pauseTimer() {
-        clearInterval(timer);
-
-    });
-
-    $("#resume").on("click", function pauseTimer() {
-        run();
-
-    });
-
 
 
     $("#nextbutton").on("click", "button", function() {
         console.log("ready for next question");
         $(".choice" + questionArray[x].answer).css("border", "none");
-        $("#explanation").empty();
+        $("#explanation").css("border", "none").empty();
+        submit = true;
         resetQuestionBox();
     });
-
-
-
-
-
-
-
 
 
 });

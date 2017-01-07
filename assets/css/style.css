@@ -1,43 +1,48 @@
-*{
-	box-sizing: border-box;
+* {
+    box-sizing: border-box;
 }
 
-.pick{
-
-	margin: 10px;
-	color: black;
-	font-size: 20px;
+body {
+    background-image: url(../images/blankboard.jpg);
+    color: white;
 }
 
-#questionbox{
-	float: left;
-	display: none;
-
+.pick {
+    margin: 10px;
+    font-size: 20px;
 }
 
-#domanda{
-	
-	font-size: 20px;
+#questionbox {
+    float: left;
+    display: none;
 }
 
-#tracker{
-	float: right;
-	margin-right: 100px;
-	position: relative;
-	border: solid 2px black;
-	padding: 5px;
-	width: 300px;
-	
+#domanda {
+    font-size: 20px;
 }
 
-#reveal{
-	clear: both;
+#tracker {
+    float: right;
+    margin-right: 100px;
+    position: relative;
+    border: solid 2px white;
+    padding: 5px;
+    width: 300px;
 }
 
-#explanation{
-	clear: both;
-	color: blue;
-	font-size: 18px;
-	font-weight: 600;
-	margin-bottom: 10px;
+#reveal {
+    clear: both;
+    margin-bottom: 40px;
+}
+
+#explanation {
+    float: left;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+#nextbutton {
+    clear: both;
+  
 }
