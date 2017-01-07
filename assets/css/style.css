@@ -8,13 +8,24 @@
 	color: blue;
 }
 
+#questionbox{
+	float: left;
+}
+
 .domanda{
 	clear: both;
 }
 
 #tracker{
-	float: right;
+	float: left;
+	margin-top: 20px;
+	position: relative;
 	border: solid 2px black;
 	padding: 5px;
-	width: 200px;
+	width: 300px;
+	
+}
+
+#reveal{
+	clear: both;
 }
