@@ -36,48 +36,45 @@ $(document).ready(function() {
 
 
     var questionOne = new question("Chemistry", "What does H2O stand for?", "methane", "water", "carbon", "octane", "B", "FUN FACT: EDIT some have noticed that this code will throw an error if passed a string where the left-most indexes don't correspond to a correctly nested entry within the object. This is a valid concern, but IMHO best addressed with a try / catch block when calling, rather than having this function silently return undefined for an invalid index.");
-    console.log(questionOne.prompt);
     scienceArray.push(questionOne);
 
     var questionTwo = new question("Chemistry", "What does C6h6 stand for?", "methane", "hexane", "benzene", "octane", "C", "FUN FACT: jalsjdfl;aslfjasl;jsfjsafj");
-    console.log(questionTwo.prompt);
+
     scienceArray.push(questionTwo);
 
     var questionThree = new question("Chemistry", "Which of these organic mechanism names is made up?", "Markovnikov", "Zaitsev", "Karpov", "Grignard", "C");
-    console.log(questionThree.prompt);
+
     scienceArray.push(questionThree);
-    console.log(scienceArray);
-// Hamilton category
-    
+
+    // Hamilton category
+
     var questionFour = new question("Hamilton", "Who killed hamilton?", "aaronburr", "herculesmulligan", "jefferson", "john laurens", "A", "FUN FACT: ");
-    console.log(questionFour.prompt);
+
     hamiltonArray.push(questionFour);
-    console.log(hamiltonArray);
+
 
     var questionFour = new question("Hamilton", "To which of these documents did Hamilton NOT contribute?", "the federalist papers", "the reynolds pamphlet", "the declaration of independence", "the u.s constitution", "C", "FUN FACT: Alexander joins forces with James Madison and John Jay to write a series of essays defending the new U.S Constitution, entitled The Federalist Papers. The plan was to write a total of 25 essays, the work evenly divided among the three men. In the end, they wrote 85 essays in the span of six months. John Jay got sick after writing 5. James Madison wrote 29. Hamilton wrote THE OTHER 51");
-    console.log(questionFour.prompt);
-    hamiltonArray.push(questionFour);
-    console.log(hamiltonArray);
 
-var questionFour = new question("Hamilton", "Which cabinet position did George Washington appoint to Alexander Hamilton", "Secretary of State", "Secretary of the Treasury", "Chief of Staff", "Secretary of Urban Development", "A", "FUN FACT: Alexander Hamilton also founded the Coast Gaurd, The New York Post, and the US Central Bank ");
-    console.log(questionFour.prompt);
     hamiltonArray.push(questionFour);
-    console.log(hamiltonArray);
+
+
+    var questionFour = new question("Hamilton", "Which cabinet position did George Washington appoint to Alexander Hamilton", "Secretary of State", "Secretary of the Treasury", "Chief of Staff", "Secretary of Urban Development", "A", "FUN FACT: Alexander Hamilton also founded the Coast Gaurd, The New York Post, and the US Central Bank ");
+
+    hamiltonArray.push(questionFour);
+
 
     var questionFour = new question("Hamilton", "FILL IN THE BLANK: The _____ founding father, without a father, got a lot farther by working a lot harder by being a lot smarter by being a self starter", "5 dollar", "10 dollar", "20 dollar", "100 dollar", "B", "FUN FACT: Alexander Hamilton was going to be removed from the 10 dollar bill, just like Jackson will be replaced by Tubman ");
-    console.log(questionFour.prompt);
+
     hamiltonArray.push(questionFour);
-    console.log(hamiltonArray);
+
 
     var questionFour = new question("Hamilton", "Who killed hamilton?", "aaronburr", "hamilton", "jefferson", "john maurens", "A", "FUN FACT: ");
-    console.log(questionFour.prompt);
-    hamiltonArray.push(questionFour);
-    console.log(hamiltonArray);
 
-    console.log($("#selection").val());
-    // $("#getmessage").on("click", function() {
-    //     key = parseFloat($("#caesarkey").val());
-    //     messagi = $("#message").val();
+    hamiltonArray.push(questionFour);
+
+
+
+
 
     $("#confirmcat").on("click", function() {
 
@@ -155,7 +152,7 @@ var questionFour = new question("Hamilton", "Which cabinet position did George W
 
         total++;
         $("#total").html(total);
-        
+
         $("#explanation").append(questionArray[x].fact).css("border", "dashed 2px white");
         $("#nextbutton").append("<button id='next'>NEXT</button>");
 

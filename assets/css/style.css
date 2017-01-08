@@ -1,106 +1,51 @@
 * {
     box-sizing: border-box;
-    font-family: 'Vidaloka', serif;
-
-
+    font-family: : 'Vidaloka', sans-serif;
 }
 
 body {
     background-image: url(../images/blankboard.jpg);
     color: white;
 }
-select{
-	font-size: 20px;
-	border-radius: 5px;
-	margin-right: 10px;
-}
 
-button{
-	border-radius: 5px;
-	font-size: 20px;
-}
-#header{
-	text-align: center;
-	border: double 2px white;
-	background-color: black;
-	margin-bottom: 15px;
-}
-
-h1{
-	font-size: 38px;
-	letter-spacing: 4px;
-}
-#chooser{
-	float: left;
-	
-	font-size: 20px;
-
-}
-#selection{
-
-	margin-bottom: 10px;
-}
-#timerDiv{
-	float: right;
-	padding: 15px;
-	width: 185px;
-	border: solid 5px yellow;
-	
-	margin-right: 20px;
-	font-size: 32px;
-	
-}
-
-#confirmcat{
-	clear: both;
-	background-color: green;
-	color: black;
-	width: 250px;
-	height: 32px;
-}
-.pick {
-    margin: 10px;
+select {
     font-size: 20px;
-}
-
-#questionbox {
-  	float: left;
-  	margin-left: 20px;
-    display: none;
-    margin-bottom: 15px;
-    margin-left: 80px;
-    width: 450px;
-}
-
-#domanda {
-    font-size: 20px;
-}
-
-
-
-
-
-#explanation {
- clear: both;
-    padding: 10px;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-#nextbutton {
-    clear: both;
-
-  
-}
-
-#next{
-	background-color: green;
-    border: solid 3px gray;
     border-radius: 5px;
-    font-size: 24px;
-    font-weight: 700;
+    margin-right: 10px;
+}
+
+button {
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 38px;
+    letter-spacing: 4px;
+}
+
+h3 {
+    margin: 10px;
+}
+
+#header {
+    text-align: center;
+    border: double 2px white;
+    background-color: black;
+    margin-bottom: 15px;
+}
+
+#selection {
     margin-bottom: 10px;
-    width: 200px;
+}
+
+#chooser {
+    float: left;
+    font-size: 20px;
+}
+
+#timer {
+    font-size: 32px;
 }
 
 #tracker {
@@ -109,13 +54,67 @@ h1{
     position: relative;
     border: solid 2px white;
     padding: 15px;
-    width: 275px;
+    width: 285px;
 }
 
-h3{
-	margin: 10px;
+#timerDiv {
+    float: right;
+    padding: 15px;
+    width: 195px;
+    border: solid 5px yellow;
+    margin-right: 20px;
+    font-size: 32px;
 }
 
-#timer{
-	font-size: 32px;
+#confirmcat {
+    clear: both;
+    background-color: green;
+    color: black;
+    width: 250px;
+    height: 32px;
+}
+
+#questionbox {
+    float: left;
+    margin-left: 20px;
+    display: none;
+    margin-bottom: 15px;
+    margin-left: 80px;
+    width: 450px;
+}
+
+.pick {
+    margin: 10px;
+    font-size: 20px;
+}
+
+#domanda {
+    font-size: 20px;
+}
+
+#reveal {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#explanation {
+    clear: both;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#nextbutton {
+    clear: both;
+}
+
+#next {
+    background-color: green;
+    border: solid 3px gray;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    width: 200px;
 }
