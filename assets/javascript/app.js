@@ -35,13 +35,13 @@ $(document).ready(function() {
 
     // Chemistry category
 
-    var questionOne = new question("OrganicChemistry", "What is the chemical formula of ammonia", "AH3", "AH4", "NH3", "NH4", "C", "FUN FACT: EDIT some have noticed that this code will throw an error if passed a string where the left-most indexes don't correspond to a correctly nested entry within the object. This is a valid concern, but IMHO best addressed with a try / catch block when calling, rather than having this function silently return undefined for an invalid index.");
+    var questionOne = new question("OrganicChemistry", "What is the chemical formula of ammonia", "AH3", "AH4", "NH3", "NH4", "C", "FUN FACT: NH4 is the formula for ammonium");
     oChemArray.push(questionOne);
 
     var questionTwo = new question("OrganicChemistry", "What does C6h6 stand for?", "Methane", "Hexane", "Benzene", "Octane", "C", "FUN FACT: The Benzene ring is extremely stable and is the base of many organic molecules");
     oChemArray.push(questionTwo);
 
-    var questionThree = new question("OrganicChemistry", "Which of these organic mechanism names is made up?", "Markovnikov", "Zaitsev", "Karpov", "Grignard", "C", "FUN FACT: Karpov is an international Chess GrandMaster");
+    var questionThree = new question("OrganicChemistry", "Which of these organic mechanism names is made up?", "Markovnikov", "Zaitsev", "Karpov", "Grignard", "C", "FUN FACT: Anatoly Karpov is an international Chess GrandMaster");
     oChemArray.push(questionThree);
 
     var questionFour = new question("OrganicChemistry", "Which organic mechanism proceeds through a concerted reaction between a conjugated diene and substituted alkene?", "Friedel-Crafts", "Zwitterion", "Claisen Condensation", "Diels-Alder", "D", "FUN FACT: The Diels-Alder reaction is my favorite organic mechanism (Wittig is close 2nd) and it looks awesome visually!!");
@@ -51,11 +51,11 @@ $(document).ready(function() {
 
     // Hamilton category
 
-    var questionFive = new question("Hamilton", "Who killed hamilton?", "Aaron Burr", "Hercules Mulligan", "Thomas Jefferson", "John Laurens", "A", "FUN FACT: Aaron Burr killed Hamilton in a duel");
+    var questionFive = new question("Hamilton", "Who killed Alexander Hamilton?", "Aaron Burr", "Hercules Mulligan", "Thomas Jefferson", "John Laurens", "A", "FUN FACT: Aaron Burr killed Hamilton in a duel");
     hamiltonArray.push(questionFive);
 
 
-    var questionSix = new question("Hamilton", "To which of these documents did Hamilton NOT contribute?", "the federalist papers", "the reynolds pamphlet", "the declaration of independence", "the u.s constitution", "C", "FUN FACT: Alexander joins forces with James Madison and John Jay to write a series of essays defending the new U.S Constitution, entitled The Federalist Papers. The plan was to write a total of 25 essays, the work evenly divided among the three men. In the end, they wrote 85 essays in the span of six months. John Jay got sick after writing 5. James Madison wrote 29. Hamilton wrote THE OTHER 51");
+    var questionSix = new question("Hamilton", "To which of these documents did Hamilton NOT contribute?", "The Federalist Papers", "The Reynolds Pamphlet", "The Declaration of Independence", "The U.S. Constitution", "C", "FUN FACT: Alexander joins forces with James Madison and John Jay to write a series of essays defending the new U.S Constitution, entitled The Federalist Papers. The plan was to write a total of 25 essays, the work evenly divided among the three men. In the end, they wrote 85 essays in the span of six months. John Jay got sick after writing 5. James Madison wrote 29. Hamilton wrote THE OTHER 51");
     hamiltonArray.push(questionSix);
 
 
@@ -72,13 +72,13 @@ $(document).ready(function() {
     var questionNine = new question("Biology", "What organelle is the powerhouse energy producer of the cell?", "Golgi body", "Mitochodria", "Endoplasmic Reticulum", "Lysozome", "B", "FUN FACT: All your mitochondrialDNA is inherited from your mother, and the very first mtDNA found is called our mitochondrial Eve");
     bioArray.push(questionNine);
 
-    var questionTen = new question("Biology", "Who killed hamilton?", "Aaron Burr", "Hercules Mulligan", "Thomas Jefferson", "John Laurens", "A", "FUN FACT: Aaron Burr killed Hamilton in a duel");
+    var questionTen = new question("Biology", "What is the main product of anaerobic respiration?", "glucose", "ATP", "protons", "glycogen", "B", "FUN FACT: adenosine triphosphate is very good source of energy");
     bioArray.push(questionTen);
 
-    var questionEleven = new question("Biology", "Who killed hamilton?", "Aaron Burr", "Hercules Mulligan", "Thomas Jefferson", "John Laurens", "A", "FUN FACT: Aaron Burr killed Hamilton in a duel");
+    var questionEleven = new question("Biology", "What hormone functions to raise blood sugar for efficient energy delivery", "gherlin", "serotonin", "glucagon", "insulin", "C", "FUN FACT: glucagon is the hormone that raises blood sugar, while insulin removes sugar from the bloodstream thus lowering blood sugar");
     bioArray.push(questionEleven);
 
-    var questionTwelve = new question("Biology", "Who killed hamilton?", "Aaron Burr", "Hercules Mulligan", "Thomas Jefferson", "John Laurens", "A", "FUN FACT: Aaron Burr killed Hamilton in a duel");
+    var questionTwelve = new question("Biology", "What percentage of the brain do humans actually use", "20%", "40%", "100%", "60%", "C", "FUN FACT: For some reason, there has been a myth widely propagated that says humans only use part of their brains; neuroscientists know as a fact this myth is false!");
     bioArray.push(questionTwelve);
 
 
@@ -97,7 +97,7 @@ $(document).ready(function() {
                 questionArray = hamiltonArray;
             }
             if ($("#selection").val() === "Biology") {
-                questionArray = hamiltonArray;
+                questionArray = bioArray;
             }
         }
         chooseCategory();
