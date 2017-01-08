@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+
+
     // global variables defined
     var questionDiv = "";
     var questionArray = [];

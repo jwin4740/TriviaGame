@@ -10,29 +10,33 @@
     <!--   <link rel="stylesheet" href="assets/css/jjwstylelibrary.css"> -->
     <link rel="stylesheet" href="assets/css/style.css">
     <title> Trivia </title>
-    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Vidaloka" rel="stylesheet">
 </head>
 
 <body>
-    <h1> TRIVIA GAME </h1>
-    <h3> Choose Your category</h3>
-    <select id="selection">
-        <option class="category" >Chemistry</option>
-        <option class="category" >Hamilton</option>
-        <option class="category" >bio</option>
-        <option class="category" >sports</option>
-    </select>
-    <button id="confirmcat"> Confirm Category</button>
-    <br>
-   
-
-    <h2> TIMER: <span id="timer">
-    </span></h2>
-    <div id="tracker">
-        <h3> Correct Answers: <span id="correct">0</span></h3>
-        <h3> Wrong Answers: <span id="wrong">0</span> </h3>
-        <h3> TOTAL QUESTIONS: <span id="total">0</span></h3>
+    <div id="header">
+        <h1> TRIVIA CHALLENGE  </h1>
     </div>
+
+    <div id="chooser">
+        <select id="selection">
+            <option id="blanker" value="" disabled selected>SELECT YOUR CATEGORY</option>
+            <option class="category">Chemistry</option>
+            <option class="category">Hamilton</option>
+            <option class="category">bio</option>
+            <option class="category">sports</option>
+        </select>
+        <br>
+        <button id="confirmcat"> Confirm Category</button>
+    </div>
+    <div id="timerDiv"> TIMER: <span id="timer"> </span></div>
+    <div id="tracker">
+        <h3> Correct Answers: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span id="correct"> 0</span></h3>
+        <h3> Wrong Answers: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span id="wrong"> 0</span> </h3>
+        <h3> TOTAL QUESTIONS: &nbsp; &nbsp; &nbsp; &nbsp; <span id="total"> 0</span></h3>
+    </div>
+    <br>
+    
     <div id="questionbox">
         <div id="domanda">
         </div>
@@ -55,14 +59,18 @@
             </div>
         </form>
         <button id="submit">SUBMIT</button>
+
     </div>
+
+    
     <div id="reveal">
     </div>
     <div id="explanation">
     </div>
     <div id="nextbutton">
     </div>
-    
+
+   
 </body>
 
 </html>

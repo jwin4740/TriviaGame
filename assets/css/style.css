@@ -1,38 +1,85 @@
 * {
     box-sizing: border-box;
+    font-family: 'Vidaloka', serif;
+
+
 }
 
 body {
     background-image: url(../images/blankboard.jpg);
     color: white;
 }
+select{
+	font-size: 20px;
+	border-radius: 5px;
+	margin-right: 10px;
+}
 
+button{
+	border-radius: 5px;
+	font-size: 20px;
+}
+#header{
+	text-align: center;
+	border: double 2px white;
+	background-color: black;
+	margin-bottom: 15px;
+}
+
+h1{
+	font-size: 38px;
+	letter-spacing: 4px;
+}
+#chooser{
+	float: left;
+	
+	font-size: 20px;
+
+}
+#selection{
+
+	margin-bottom: 10px;
+}
+#timerDiv{
+	float: right;
+	padding: 15px;
+	width: 185px;
+	border: solid 5px yellow;
+	
+	margin-right: 20px;
+	font-size: 32px;
+	
+}
+
+#confirmcat{
+	clear: both;
+	background-color: green;
+	color: black;
+	width: 250px;
+	height: 32px;
+}
 .pick {
     margin: 10px;
     font-size: 20px;
 }
 
 #questionbox {
-    float: left;
+  	float: left;
+  	margin-left: 210px;
     display: none;
+    margin-bottom: 15px;
 }
 
 #domanda {
     font-size: 20px;
 }
 
-#tracker {
-    float: right;
-    margin-right: 100px;
-    position: relative;
-    border: solid 2px white;
-    padding: 5px;
-    width: 300px;
-}
+
 
 #reveal {
     clear: both;
-    margin-bottom: 40px;
+  
+    margin-left: 475px;
 }
 
 #explanation {
@@ -44,5 +91,33 @@ body {
 }
 #nextbutton {
     clear: both;
+
   
+}
+
+#next{
+	background-color: green;
+    border: solid 3px gray;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+#tracker {
+    float: right;
+    margin-right: 20px;
+    position: relative;
+    border: solid 2px white;
+    padding: 15px;
+    width: 275px;
+}
+
+h3{
+	margin: 10px;
+}
+
+#timer{
+	font-size: 32px;
 }
