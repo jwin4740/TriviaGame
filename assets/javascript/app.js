@@ -122,18 +122,24 @@ $(document).ready(function() {
     }
 
     function decrement() {
-        timerStart--;
-        $("#timer").html(timerStart);
-        if (timerStart === 0) {
-            stop();
-            submit = false;
+        
+            timerStart--;
+            $("#timer").html(timerStart);
 
-        }
+            audio();
+            if (timerStart === 0) {
+                resetaudio();
+                stop();
+                submit = false;
+            }
+        
     }
 
     $("#submit").on("click", function() {
         if (submit) {
+            resetaudio();
             stop();
+
             $("#timer").empty();
             submit = false;
         }
@@ -182,7 +188,7 @@ $(document).ready(function() {
         $("input:radio").prop("checked", false);
         $("#reveal").empty();
 
-        if (catCounter === 4) {
+        if (catCounter >= 4) {
             $("#domanda").html("");
             x = 0;
             $("#nextbutton").empty();
@@ -195,19 +201,24 @@ $(document).ready(function() {
             $("#labelB").html("");
             $("#labelC").html("");
             $("#labelD").html("");
-        } 
 
-        else {
+            resetaudio();
+
+        } else {
             $("#domanda").html(questionArray[x].prompt);
             $("#labelA").html("A) " + questionArray[x].choiceA);
             $("#labelB").html("B) " + questionArray[x].choiceB);
             $("#labelC").html("C) " + questionArray[x].choiceC);
             $("#labelD").html("D) " + questionArray[x].choiceD);
+            run();
         }
-        $("#nextbutton").empty();
-        timerStart = 15;
 
-        run();
+     
+
+        timerStart = 15;
+        $("#nextbutton").empty();
+        
+
         console.log(bioArray);
 
     }
@@ -218,12 +229,20 @@ $(document).ready(function() {
         $("#explanation").css("border", "none").empty();
         submit = true;
         catCounter++;
-        console.log(catCounter);
-        console.log(bioArray);
+        
+
 
         resetQuestionBox();
 
     });
 
+    function audio() {
+        $("#ticker")[0].play()
+    }
 
+
+    function resetaudio() {
+        $("#ticker")[0].pause();
+        $("#ticker")[0].currentTime = 0;
+    }
 });
