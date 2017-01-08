@@ -65,9 +65,11 @@ h1{
 
 #questionbox {
   	float: left;
-  	margin-left: 210px;
+  	margin-left: 20px;
     display: none;
     margin-bottom: 15px;
+    margin-left: 80px;
+    width: 450px;
 }
 
 #domanda {
@@ -76,14 +78,10 @@ h1{
 
 
 
-#reveal {
-    clear: both;
-  
-    margin-left: 475px;
-}
+
 
 #explanation {
-    float: left;
+ clear: both;
     padding: 10px;
     font-size: 18px;
     font-weight: 600;
