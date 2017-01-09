@@ -149,6 +149,7 @@ $(document).ready(function() {
     function checkAnswer(x) {
 
         if (result === questionArray[x].answer) {
+            console.log(result + " " + questionArray[x].answer);
             check = true;
         }
         if (result != questionArray[x].answer) {
@@ -217,10 +218,7 @@ $(document).ready(function() {
 
         timerStart = 15;
         $("#nextbutton").empty();
-        
-
-        console.log(bioArray);
-
+    
     }
 
 
