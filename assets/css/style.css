@@ -28,6 +28,8 @@ h3 {
     margin: 10px;
 }
 
+
+
 #header {
     text-align: center;
     border: double 2px white;
@@ -42,6 +44,14 @@ h3 {
 #chooser {
     float: left;
     font-size: 20px;
+}
+
+.no{
+    color: red;
+}
+
+.yes{
+    color: #7FFF00;
 }
 
 #timer {

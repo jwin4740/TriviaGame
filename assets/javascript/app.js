@@ -1,5 +1,6 @@
 $(document).ready(function() {
-
+    var frontend = Math.floor((Math.random() * 4) + 1);
+    console.log(frontend);
     // global variables defined
     var questionDiv = "";
     var questionArray = [];
@@ -57,7 +58,7 @@ $(document).ready(function() {
     var questionSix = new question("Hamilton", "To which of these documents did Hamilton NOT contribute?", "The Federalist Papers", "The Reynolds Pamphlet", "The Declaration of Independence", "The U.S. Constitution", "C", "FUN FACT: Alexander joins forces with James Madison and John Jay to write a series of essays defending the new U.S Constitution, entitled The Federalist Papers. The plan was to write a total of 25 essays, the work evenly divided among the three men. In the end, they wrote 85 essays in the span of six months. John Jay got sick after writing 5. James Madison wrote 29. Hamilton wrote THE OTHER 51");
     hamiltonArray.push(questionSix);
 
-    var questionSeven = new question("Hamilton", "Which cabinet position did George Washington appoint to Alexander Hamilton", "Secretary of State", "Secretary of the Treasury", "Chief of Staff", "Secretary of Urban Development", "A", "FUN FACT: Alexander Hamilton also founded the Coast Gaurd, The New York Post, and the US Central Bank ");
+    var questionSeven = new question("Hamilton", "Which cabinet position did George Washington appoint to Alexander Hamilton", "Secretary of State", "Secretary of the Treasury", "Chief of Staff", "Secretary of Urban Development", "B", "FUN FACT: Alexander Hamilton also founded the Coast Gaurd, The New York Post, and the US Central Bank ");
     hamiltonArray.push(questionSeven);
 
     var questionEight = new question("Hamilton", "FILL IN THE BLANK: The _____ founding father, without a father, got a lot farther by working a lot harder by being a lot smarter by being a self starter", "5 dollar", "10 dollar", "20 dollar", "100 dollar", "B", "FUN FACT: Alexander Hamilton was going to be removed from the 10 dollar bill, just like Jackson will be replaced by Tubman ");
@@ -122,17 +123,17 @@ $(document).ready(function() {
     }
 
     function decrement() {
-        
-            timerStart--;
-            $("#timer").html(timerStart);
 
-            audio();
-            if (timerStart === 0) {
-                resetaudio();
-                stop();
-                submit = false;
-            }
-        
+        timerStart--;
+        $("#timer").html(timerStart);
+
+        audio();
+        if (timerStart === 0) {
+            resetaudio();
+            stop();
+            submit = false;
+        }
+
     }
 
     $("#submit").on("click", function() {
@@ -148,36 +149,39 @@ $(document).ready(function() {
 
     function checkAnswer(x) {
 
-        if (result === questionArray[x].answer) {
-            console.log(result + " " + questionArray[x].answer);
-            check = true;
-        }
-        if (result != questionArray[x].answer) {
-            check = false;
-        }
-        $("#reveal").html("<h3> The correct answer is: " + questionArray[x].answer + "</h3>");
-        $(".choice" + questionArray[x].answer).css("border", "solid 4px #7FFF00");
         if (check) {
             correct++;
             $("#correct").html(correct);
+            $("#reveal").html("<h3 class='yes'> You are correct!! It is: " + questionArray[x].answer + ".</h3>");
         } else
 
         {
             wrong++;
             $("#wrong").html(wrong);
+            $("#reveal").html("<h3 class='no'> Sorry, wrong answer</h3>");
         }
 
+        $(".choice" + questionArray[x].answer).css("border", "solid 4px #7FFF00");
         total++;
         $("#total").html(total);
 
         $("#explanation").append(questionArray[x].fact).css("border", "dashed 2px white");
-        $("#nextbutton").append("<button id='next'>NEXT</button>");
+        // $("#nextbutton").append("<button id='next'>NEXT</button>");
+        setTimeout(nextButtonAlternative, 10000);
 
     }
 
-
+    $(".option").on("click", function() {
+        if (this.id === questionArray[x].answer) {
+            check = true;
+        } else {
+            check = false;
+        }
+        console.log(this.id);
+    });
 
     function stop() {
+
         clearInterval(timer);
         checkAnswer(x);
     }
@@ -192,7 +196,7 @@ $(document).ready(function() {
         if (catCounter >= 4) {
             $("#domanda").html("");
             x = 0;
-            $("#nextbutton").empty();
+            // $("#nextbutton").empty();
             $("#questionbox").css("display", "none");
             $("#newcats").html("<h2>CHOOSE ANOTHER CATEGORY</h2>");
             questionArray = [];
@@ -214,26 +218,32 @@ $(document).ready(function() {
             run();
         }
 
-     
+
 
         timerStart = 15;
-        $("#nextbutton").empty();
-    
+        // $("#nextbutton").empty();
+
     }
 
-
-    $("#nextbutton").on("click", "button", function() {
+    function nextButtonAlternative() {
         $(".choice" + questionArray[x].answer).css("border", "none");
         $("#explanation").css("border", "none").empty();
         submit = true;
         catCounter++;
-        
-
-
         resetQuestionBox();
+    }
 
-    });
 
+
+    // $("#nextbutton").on("click", "button", function() {
+    //     $(".choice" + questionArray[x].answer).css("border", "none");
+    //     $("#explanation").css("border", "none").empty();
+    //     submit = true;
+    //     catCounter++;
+    //     resetQuestionBox();
+    // });
+
+    
     function audio() {
         $("#ticker")[0].play()
     }
